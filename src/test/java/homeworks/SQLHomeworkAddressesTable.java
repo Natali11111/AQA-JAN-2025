@@ -13,6 +13,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static homeworks.BaseSQLTest.CONNECTION;
+import static homeworks.BaseSQLTest.STATEMENT;
+
 //TODO: usual Homework: Create table Addresses, where you write
 // Person's Name, LastName, City Name, Street Name, Address
 //TODO: usual homework + : re-write this test using BeforeSuite and AfterSuite
@@ -21,7 +24,7 @@ import java.util.List;
 // - get phone name
 // - get phone price
 // - store phone name and phone price to DB
-public class SQLHomeworkAddressesTable extends BaseSQLTest{
+public class SQLHomeworkAddressesTable {
 
 
     @Test
@@ -78,6 +81,7 @@ public class SQLHomeworkAddressesTable extends BaseSQLTest{
         requestSpecification.queryParam("noinfo");
         requestSpecification.queryParam("results", "5");
         Response response = requestSpecification.get();
+        response.prettyPrint();
         return response.as(ResultsDto.class).getResults();
     }
 
